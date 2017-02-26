@@ -22,13 +22,24 @@ def greet_person(p_name='Unknown')
 
 end
 
-def calc_square ( width, length )
+def ask_width
+    print "Enter object's width "
+    return gets.to_i
+end
+
+def ask_lenght
+    print "Enter object's length "
+    return gets.to_i
+end
+
+def calc_square
 #
 # Calculate square
 #
 
-    puts "Object's width is #{width}"
-    puts "Object's length is #{length}"
+    width = ask_width
+    length = ask_lenght
+
     puts "Object's square is #{ width * length}"
 
 end
@@ -42,4 +53,4 @@ end
 
 greet_person
 
-calc_square(10, 15)
+calc_square
