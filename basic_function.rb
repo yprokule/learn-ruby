@@ -13,7 +13,7 @@ def say_hello()
 
 end
 
-def greet_person(p_name)
+def greet_person(p_name='Unknown')
 #
 # Say hi to person called p_name
 #
@@ -39,5 +39,7 @@ say_hello
 for i in [ 'Tom','John', 'Rob' ]
     greet_person(i)
 end
+
+greet_person
 
 calc_square(10, 15)
