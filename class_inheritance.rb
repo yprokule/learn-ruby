@@ -21,7 +21,8 @@ class Person
 
     def to_s
         # over-write method
-        "PERSON. Name #{@name}\nPERSON. Age: #{@age}"
+        out = format("PERSON . %10s: %-15s", 'Name', @name)
+        out += format("\nPERSON . %10s: %-15s", 'Age', @age)
     end
 end
 
@@ -51,7 +52,9 @@ class Student < Person
     end
 
     def to_s
-        super.to_s + "\nSTUDENT. College: #{@college}\nSTUDENT. Group: #{@group}"
+        new = super.to_s
+        new += format("\nSTUDENT. %10s: %-15s", 'College', @college)
+        new += format("\nSTUDENT. %10s: %-15s", 'Group', @group)
     end
 end
 
@@ -76,11 +79,11 @@ student1.name = 'Robert'
 student1.college = 'LUIF'
 student1.group = 'ZM-1'
 
-
-puts '----------------------------------------'
 puts student1.name
 puts student1.age
 puts student1.college
 puts student1.group
+
+puts '----------------------------------------'
 puts student1
 puts '----------------------------------------'
