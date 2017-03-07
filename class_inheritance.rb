@@ -84,12 +84,9 @@ class Sportfan < Person
     attr_reader :team, :sport, :name
 
     def initialize(name, sport='football', team='FC KL')
-        #@name = name    # Fan name
-        #@team = team    # Best team ever
-        #@sport = sport  # Footbal vs Basketball
-        self.name = name
-        self.team = team
-        self.sport = sport
+        self.name = name    # My name is
+        self.team = team    # Best team ever
+        self.sport = sport  # Football vs Basketball :)
     end
 
     def team=(team)
@@ -109,7 +106,7 @@ class Sportfan < Person
     end
 
     def info
-        puts "My name is #{@name}"
+        puts "My name is #{name}"
         puts "I'm a SPOOOOOOORT Faaaaaaan!!!!"
         puts "The best team in #{self.sport} is '#{team}'"
     end
