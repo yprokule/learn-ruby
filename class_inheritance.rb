@@ -111,13 +111,13 @@ class Sportfan < Person
     def info
         puts "My name is #{@name}"
         puts "I'm a SPOOOOOOORT Faaaaaaan!!!!"
-        puts "The best team in #{sport} is '#{team}'"
+        puts "The best team in #{self.sport} is '#{team}'"
     end
 
     def to_s
-        out =  format("Sportfan . %10s: %-15s\n", 'Name', @name)
-        out += format("Sportfan . %10s: %-15s\n", 'Sport', @sport)
-        out += format("Sportfan . %10s: %-15s", 'Team', @team)
+        out =  format("Sportfan . %10s: %-15s\n", 'Name', name)
+        out += format("Sportfan . %10s: %-15s\n", 'Sport', sport)
+        out += format("Sportfan . %10s: %-15s", 'Team', team)
     end
 
 end
@@ -153,7 +153,7 @@ puts '----------------------------------------'
 puts student1
 puts '----------------------------------------'
 
-fan1 = Sportfan.new('', '', 'cubs')
+fan1 = Sportfan.new('JJB', 'baseball', 'cubs')
 fan1.info
 
 fan1.name = 'JJ Updated'
