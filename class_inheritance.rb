@@ -5,7 +5,16 @@
 
 class Person
 
-    attr_accessor :name, :age
+    attr_accessor :age
+    attr_reader :name
+
+    def name=(name)
+        if name.to_s == ''
+            raise "Every person has a name"
+        else
+            @name = name
+        end
+    end
 
     def initialize
         puts "Person.new is called"
@@ -75,9 +84,12 @@ class Sportfan < Person
     attr_reader :team, :sport, :name
 
     def initialize(name, sport='football', team='FC KL')
-        @name = name    # Fan name
-        @team = team    # Best team ever
-        @sport = sport  # Footbal vs Basketball
+        #@name = name    # Fan name
+        #@team = team    # Best team ever
+        #@sport = sport  # Footbal vs Basketball
+        self.name = name
+        self.team = team
+        self.sport = sport
     end
 
     def team=(team)
@@ -141,7 +153,7 @@ puts '----------------------------------------'
 puts student1
 puts '----------------------------------------'
 
-fan1 = Sportfan.new('JJB', 'baseball', 'cubs')
+fan1 = Sportfan.new('', '', 'cubs')
 fan1.info
 
 fan1.name = 'JJ Updated'
