@@ -7,6 +7,10 @@ class Person
 
     attr_accessor :name, :age
 
+    def initialize
+        puts "Person.new is called"
+    end
+
     def introduce
         puts "My name is: #{@name}"
     end
@@ -33,6 +37,11 @@ class Student < Person
 
     attr_reader :college, :group
 
+    def initialize
+        super
+        puts "Student.new is called"
+    end
+
     def college=(mcollege)
         # set the college name
         if mcollege.to_s == ''
@@ -57,6 +66,50 @@ class Student < Person
         new += format("\nSTUDENT. %10s: %-15s", 'Group', @group)
     end
 end
+
+class Sportfan < Person
+    #
+    # Represents a sport fan
+    #
+
+    attr_reader :team, :sport, :name
+
+    def initialize(name, sport='football', team='FC KL')
+        @name = name    # Fan name
+        @team = team    # Best team ever
+        @sport = sport  # Footbal vs Basketball
+    end
+
+    def team=(team)
+        if team.to_s == ''
+            raise "U don't have a favorite team ???"
+        else
+            @team = team
+        end
+    end
+
+    def sport=(sport)
+        if sport.to_s == ''
+            raise "U don't have a favorite sport ???"
+        else
+            @sport = sport
+        end
+    end
+
+    def info
+        puts "My name is #{@name}"
+        puts "I'm a SPOOOOOOORT Faaaaaaan!!!!"
+        puts "The best team in #{sport} is '#{team}'"
+    end
+
+    def to_s
+        out =  format("Sportfan . %10s: %-15s\n", 'Name', @name)
+        out += format("Sportfan . %10s: %-15s\n", 'Sport', @sport)
+        out += format("Sportfan . %10s: %-15s", 'Team', @team)
+    end
+
+end
+
 
 person1 = Person.new
 
@@ -87,3 +140,13 @@ puts student1.group
 puts '----------------------------------------'
 puts student1
 puts '----------------------------------------'
+
+fan1 = Sportfan.new('JJB', 'baseball', 'cubs')
+fan1.info
+
+fan1.name = 'JJ Updated'
+fan1.sport = 'football'
+fan1.team = 'FC KL'
+fan1.info
+
+puts fan1
