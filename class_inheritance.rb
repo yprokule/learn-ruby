@@ -16,8 +16,9 @@ class Person
         end
     end
 
-    def initialize
+    def initialize(name='Anonymous')
         puts "Person.new is called"
+        self.name = name
     end
 
     def introduce
@@ -81,10 +82,26 @@ class Sportfan < Person
     # Represents a sport fan
     #
 
+    def self.fc_kl(name)
+        puts "Class method fc_kl called"
+        Sportfan.new(name, 'football', 'FC KL')
+    end
+
+    def self.hc_kl(name)
+        puts "Class method hc_kl called"
+        Sportfan.new(name, 'hockey', 'HC KL')
+    end
+
+    def self.bc_kl(name)
+        puts "Class method bc_kl called"
+        Sportfan.new(name, 'basketball', 'BC KL')
+    end
+
     attr_reader :team, :sport, :name
 
     def initialize(name, sport='football', team='FC KL')
-        self.name = name    # My name is
+        #self.name = name    # My name is
+        super(name)
         self.team = team    # Best team ever
         self.sport = sport  # Football vs Basketball :)
     end
@@ -150,12 +167,24 @@ puts '----------------------------------------'
 puts student1
 puts '----------------------------------------'
 
-fan1 = Sportfan.new('JJB', 'baseball', 'cubs')
+fan1 = Sportfan.new('JJB')
 fan1.info
 
 fan1.name = 'JJ Updated'
-fan1.sport = 'football'
-fan1.team = 'FC KL'
+fan1.sport = 'baseball'
+fan1.team = 'BC KL'
 fan1.info
 
 puts fan1
+
+fan2 = Sportfan.fc_kl('Tom')
+puts fan2
+puts '----------------------------------------'
+
+fan3 = Sportfan.bc_kl('Bob')
+puts fan3
+puts '----------------------------------------'
+
+fan4 = Sportfan.hc_kl('Handi')
+puts fan4
+puts '----------------------------------------'
